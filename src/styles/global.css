@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  line-height: 1.8;
+  color: #e4e4e7;
+  background-color: #0a0e27;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 30px;
+}
+
+header {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 40px;
+}
+
+.name {
+  font-size: 3em;
+  font-weight: 300;
+  color: #60a5fa;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+}
+
+.title {
+  font-size: 1.1em;
+  color: #94a3b8;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.intro {
+  font-size: 1em;
+  color: #cbd5e1;
+  max-width: 600px;
+  line-height: 1.9;
+  font-weight: 300;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #60a5fa;
+  font-weight: 400;
+  margin-bottom: 30px;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+}
+
+h2::before {
+  content: "//";
+  color: #475569;
+  margin-right: 10px;
+}
+
+p {
+  color: #cbd5e1;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.project {
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  padding: 30px;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.project:hover {
+  border-color: #3b82f6;
+  transform: translateX(10px);
+}
+
+.project h3 {
+  font-size: 1.2em;
+  color: #e4e4e7;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.project p {
+  font-size: 0.95em;
+  color: #94a3b8;
+}
+
+.contact-links {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  color: #60a5fa;
+  text-decoration: none;
+  font-size: 0.95em;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.contact-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -3px;
+  left: 0;
+  background-color: #60a5fa;
+  transition: width 0.3s ease;
+}
+
+.contact-link:hover::after {
+  width: 100%;
+}
+
+.contact-link:hover {
+  color: #93c5fd;
+}
+
+footer {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #1e293b;
+  text-align: center;
+  color: #475569;
+  font-size: 0.85em;
+}
+
+.divider {
+  height: 1px;
+  background-color: #1e293b;
+  margin: 20px 0;
+}
+
+.tech-ico{
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 50px 20px;
+  }
+
+  .name {
+    font-size: 2.2em;
+  }
+
+  header {
+    margin-bottom: 60px;
+  }
+
+  section {
+    margin-bottom: 50px;
+  }
+
+  .project:hover {
+    transform: translateX(5px);
+  }
+}
