@@ -13,14 +13,15 @@ export default function Work() {
       <h2>work</h2>
       {projects.map((project, index) => (
         <div key={index} className="project">
+          <a href="/privacy/launchTrackPolicy">
           <h3>{project.title}</h3>
           <p>{project.description}</p>
           <div>
-            <img className="tech-ico" src="./ios.svg" alt="" />
-            <img className="tech-ico" src="./swift.svg" alt="" />
-            <img className="tech-ico" src="./xcode.svg" alt="" />
+            <img className="tech-ico" src="/ios.svg" alt="" />
+            <img className="tech-ico" src="/swift.svg" alt="" />
+            <img className="tech-ico" src="/xcode.svg" alt="" />
           </div>
-          
+          </a>
         </div>
       ))}
     </section>
