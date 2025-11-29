@@ -1,8 +1,6 @@
 export default function Contact() {
   const links = [
-    { label: "email", href: "mailto:your.email@example.com" },
-    { label: "github", href: "https://github.com/yourusername" },
-    { label: "linkedin", href: "https://linkedin.com/in/yourprofile" }
+    { label: "📧 Email", href: "mailto:ernestocisnero92@gmail.com" }
   ];
 
   return (
