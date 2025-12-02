@@ -3,7 +3,7 @@ layout: ../../layouts/PrivacyPolicyLayout.astro
 ---
 # Privacy Policy — LaunchTrack App
 
-Last updated: Nov, 23, 2025
+Last updated: Dec, 1, 2025
 
 Thank you for using LaunchTrack.
 Your privacy is important. This Privacy Policy explains how the app handles your data.
@@ -52,6 +52,8 @@ Requesting launch data from a public API
 Displaying launch schedules and countdowns
 
 No data is used for marketing, tracking, analytics, or user profiling.
+
+LaunchTrack does not collect any personal information from users. All ads served in the app are non-personalized.
 
 ### 4. Third-Party Services
 
