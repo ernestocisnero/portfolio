@@ -4,7 +4,7 @@ export default function Work() {
     {
       title: "LaunchTrack",
       platform: "iOS",
-      description: "Currently in development! LaunchTrack - Allows the users to know the upcoming space mission launches. 🚀"
+      description: "Currently in version 1.3.0! LaunchTrack - Allows the users to know the upcoming space mission launches. 🚀"
     }
   ];
 
