@@ -2,6 +2,11 @@
 export default function Work() {
   const projects = [
     {
+      title: "PlayConnect",
+      platform: "iOS",
+      description: "Under development...⏳⚽️ Soccer app for conecting players and coaches"
+    },
+    {
       title: "LaunchTrack",
       platform: "iOS",
       description: "Currently in version 1.3.0! LaunchTrack - Allows the users to know the upcoming space mission launches. 🚀"
@@ -10,7 +15,7 @@ export default function Work() {
 
   return (
     <section>
-      <h2>work</h2>
+      <h2>Apps</h2>
       {projects.map((project, index) => (
         <div key={index} className="project">
           <a href="/privacy/launchTrackPolicy">
