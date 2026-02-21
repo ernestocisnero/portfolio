@@ -2,13 +2,6 @@
 export default function Work() {
   const projects = [
     {
-      title: "PlayConnect",
-      platform: "iOS",
-      description: "Under development...⏳⚽️ Soccer app for conecting players and coaches",
-      plink: "",
-      status: "In Development"
-    },
-    {
       title: "LaunchTrack",
       platform: "iOS",
       description: "Currently in version 1.3.0! LaunchTrack - Allows the users to know the upcoming space mission launches. 🚀",
