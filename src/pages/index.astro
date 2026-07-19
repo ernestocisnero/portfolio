@@ -1,20 +1,14 @@
 ---
-import Work from '../components/Work.jsx';
-import '../styles/global.css';
+import Hero from "../components/Hero.jsx";
+//import Apps from "../components/Apps.jsx";
+import "../styles/global.css";
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ernesto Cisnero</title>
-  </head>
   <body>
-    <div class="container">
-      <Work />
-      <footer>
-        <p>© {new Date().getFullYear()} — Ernesto Cisnero</p>
-      </footer>
-    </div>
+    <main class="container">
+      <Hero />
+      <!-- <Apps /> -->
+    </main>
   </body>
 </html>
