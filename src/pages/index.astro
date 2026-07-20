@@ -1,14 +1,50 @@
 ---
-import Hero from "../components/Hero.jsx";
-//import Apps from "../components/Apps.jsx";
+import Hero from "../components/Hero.astro";
+import AppList from "../components/AppList.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+
+const apps = [
+  {
+    slug: "launchtrack",
+    name: "LaunchTrack",
+    tagline: "Space launches tracker.",
+    link: "/apps/launchtrack/",
+    icon: "/apps/launchtrack/LaunchTrackNewLogo.png",
+  },
+  {
+    slug: "due",
+    name: "Due",
+    tagline: "Bill reminders that stay on your phone.",
+    link: "/apps/due/",
+    color: "#064E3B",
+    icon: "/apps/due/01_primary_green_bg.png",
+  },
+  {
+    slug: "civis",
+    name: "Civis",
+    tagline: "More soon.",
+    status: "In development",
+    icon: "/apps/civis/CivisIcon.png",
+  },
+];
 ---
 
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ernesto Cisnero — iOS Developer</title>
+    <meta
+      name="description"
+      content="Independent iOS developer building small, focused apps — LaunchTrack, Due, and more."
+    />
+  </head>
   <body>
     <main class="container">
       <Hero />
-      <!-- <Apps /> -->
+      <AppList apps={apps} />
+      <Footer />
     </main>
   </body>
 </html>

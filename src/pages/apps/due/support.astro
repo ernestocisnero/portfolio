@@ -1,0 +1,181 @@
+---
+import Layout from "../../../layouts/LayoutDue.astro";
+
+const faqs = [
+  {
+    q: "I'm not getting reminders. What's wrong?",
+    a: "This almost always means notifications are turned off for Due. Open iOS Settings → Due → Notifications and make sure Allow Notifications is on. Due also shows a banner inside the app when notifications are off, tapping it will take you straight to this setting.",
+  },
+  {
+    q: "How does a recurring bill work after I pay it?",
+    a: "Marking a recurring bill as paid rolls its due date forward to the next cycle, weekly, monthly, or yearly, depending on how you set it up. A monthly bill due on the 31st correctly moves to the last day of shorter months (like the 28th in February) instead of drifting into the wrong month.",
+  },
+  {
+    q: "Can I mark a bill as paid without opening the app?",
+    a: "Yes. Long-press (or swipe, depending on your iOS settings) on a Due reminder notification and choose \"Mark as Paid.\" The bill updates immediately, with no need to open the app.",
+  },
+  {
+    q: "Where is my data stored?",
+    a: "Entirely on your device. Due has no server and no account system, so there's nothing to sign into and nothing to sync. See the privacy policy for the full details.",
+  },
+  {
+    q: "What happens to my bills if I delete the app?",
+    a: "They're deleted along with it. Since everything lives on your device only, we have no copy to restore. If you'd like a safety net, use the export feature (in the app's About screen) to save a backup file before deleting or switching devices.",
+  },
+  {
+    q: "How do I back up or transfer my bills to a new phone?",
+    a: "Open the About screen inside the app and choose Export Bills, this saves a file you can store anywhere (iCloud Drive, Files, email to yourself). On your new device, use Import Bills and select that same file.",
+  },
+  {
+    q: "Is the tip jar a subscription?",
+    a: "No. Tips are one-time purchases, there's no subscription, and no feature in Due is locked behind a tip. It's entirely optional support for development.",
+  },
+  {
+    q: "Can I use Due on Android or the web?",
+    a: "Not currently. Due is built natively for iOS.",
+  },
+];
+---
+
+<Layout
+  title="Support"
+  description="Answers to common questions about reminders, recurring bills, backups, and the Due app."
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Support</p>
+      <h1>Questions about Due</h1>
+      <p class="lede">Most things people ask about are answered below. Anything else, reach out directly.</p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="wrap">
+      <div class="faq-list">
+        {
+          faqs.map((item) => (
+            <details class="faq-item">
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+
+      <!-- <div class="contact-panel">
+        <h2>Still stuck?</h2>
+        <p>Send a note and I'll get back to you directly — Due is a small, independently built app.</p>
+        <a class="btn-primary" href="mailto:support@example.com">Email support@example.com</a>
+      </div> -->
+      
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: var(--cream);
+    padding: 72px 0 56px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--forest);
+    margin-bottom: 16px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(30px, 4vw, 42px);
+    margin-bottom: 14px;
+  }
+
+  .lede {
+    font-size: 17px;
+    color: var(--ink);
+    max-width: 52ch;
+  }
+
+  .content {
+    padding: 64px 0 96px;
+  }
+
+  .faq-list {
+    max-width: 700px;
+    margin-bottom: 72px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 20px 0;
+  }
+
+  .faq-item:first-child {
+    border-top: 1px solid var(--line);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--forest);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: "+";
+    font-family: var(--font-mono);
+    font-size: 18px;
+    color: var(--ink-soft);
+    flex-shrink: 0;
+  }
+
+  .faq-item[open] summary::after {
+    content: "−";
+  }
+
+  .faq-item p {
+    color: var(--ink-soft);
+    margin-top: 14px;
+    margin-bottom: 0;
+    max-width: 60ch;
+  }
+
+  .contact-panel {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 560px;
+  }
+
+  .contact-panel h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .contact-panel p {
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--forest);
+    color: var(--cream);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 15px;
+  }
+</style>

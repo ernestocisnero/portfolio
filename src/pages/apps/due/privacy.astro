@@ -1,0 +1,104 @@
+---
+import Layout from "../../../layouts/LayoutDue.astro";
+---
+
+<Layout
+  title="Privacy Policy"
+  description="Due's privacy policy: what data the app stores, where it lives, and what — if anything — leaves your device."
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy policy</h1>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="wrap legal-content">
+      <span class="legal-updated">Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+
+      <h2>The short version</h2>
+      <p>
+        Due doesn't have a server, an account system, or an analytics provider. The bills you add their names, amounts, due dates, and payment status, are stored only in your device's local
+        storage. Nobody but you, on your device, has access to that information. That's the whole
+        policy; everything below just explains it in more detail.
+      </p>
+
+      <h2>What Due stores, and where</h2>
+      <p>
+        When you add a bill, Due saves it using Apple's on-device data storage (SwiftData), on your
+        phone. This data is never transmitted to us, to a server, or to any third party. If you
+        delete the app, that data is deleted with it. Due has no way to retrieve it, because Due
+        never had a copy in the first place.
+      </p>
+
+      <h2>Notifications</h2>
+      <p>
+        Reminders are scheduled locally on your device using Apple's notification system. Due does
+        not use a push notification service, which means no bill data is ever sent off your phone to
+        trigger a reminder.
+      </p>
+
+      <h2>Exporting your data</h2>
+      <p>
+        Due lets you export your bills to a file for backup purposes. That file is created and
+        stored using the standard iOS share sheet, entirely under your control. Due does not upload
+        it anywhere, and has no visibility into where you choose to save or send it.
+      </p>
+
+      <h2>In-app tips</h2>
+      <p>
+        Due offers optional, one-time tips to support development. These purchases are processed
+        entirely by Apple through StoreKit. Due does not receive or store your payment information. Apple handles the transaction, and any billing details are covered by Apple's own privacy
+        policy, not this one.
+      </p>
+
+      <h2>Children's privacy</h2>
+      <p>
+        Due does not knowingly collect any information from anyone, including children, because Due
+        does not collect information from anyone at all, data stays on-device regardless of who's
+        using it.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        If this policy ever changes, for example, if a future version of Due adds an optional
+        feature that involves a network connection, this page will be updated, and the "last
+        updated" date above will reflect it.
+      </p>
+
+      <!-- <h2>Contact</h2>
+      <p>
+        Questions about this policy can be sent to <a href="mailto:support@example.com">support@example.com</a>.
+      </p> -->
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: var(--cream);
+    padding: 72px 0 48px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--forest);
+    margin-bottom: 16px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(30px, 4vw, 42px);
+  }
+
+  .content {
+    padding: 48px 0 96px;
+  }
+
+  .legal-content {
+    max-width: 680px;
+  }
+</style>

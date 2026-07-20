@@ -1,0 +1,201 @@
+---
+import Layout from "../../../layouts/LayoutDue.astro";
+
+const features = [
+  { label: "Recurring bills that roll forward on their own", value: "auto" },
+  { label: "Reminders before every due date, not after", value: "on time" },
+  { label: "Mark as paid right from the notification", value: "1 tap" },
+  { label: "Calendar view of what's due, and when", value: "clear" },
+  { label: "Every bill stored only on your device", value: "local" },
+];
+---
+
+<Layout
+  title="Bill reminders that stay on your phone"
+  description="Due is a simple iOS app that reminds you before bills are due — recurring or one-time, all stored locally on your device."
+>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">For iOS</p>
+      <h1>
+        Never miss a bill.<br />
+        Never skip a payment.
+      </h1>
+      <p class="hero-sub">
+        Due reminds you before each bill is due, rolls recurring bills forward once you pay them, and
+        keeps every number on your phone. No account needed. No data collected. Everything stays local.
+      </p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#">Download on the App Store</a>
+        <a class="btn-secondary" href="/apps/due/about">How it works</a>
+      </div>
+      <div class="hero-ledger" aria-hidden="true">
+        <div class="ledger-line">
+          <span class="label">Rent</span>
+          <span class="fill"></span>
+          <span class="value">due in 3 days</span>
+        </div>
+        <div class="ledger-line">
+          <span class="label">Internet</span>
+          <span class="fill"></span>
+          <span class="value">paid</span>
+        </div>
+        <div class="ledger-line">
+          <span class="label">Car insurance</span>
+          <span class="fill"></span>
+          <span class="value">due in 11 days</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="wrap">
+      <h2>What Due actually does</h2>
+      <p class="section-sub">No budgeting, no linked bank accounts, no dashboards to maintain. Just bills, on time.</p>
+
+      <div class="feature-ledger">
+        {
+          features.map((f) => (
+            <div class="ledger-line">
+              <span class="label">{f.label}</span>
+              <span class="fill" />
+              <span class="value">{f.value}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy-panel">
+    <div class="wrap privacy-inner">
+      <h2>Local means local</h2>
+      <p>
+        Due doesn't have a server, because it doesn't need one. Every bill you add is stored on your
+        device using Apple's on-device storage. There's no account to create, no data leaves your
+        phone, and nothing is collected about you or your bills.
+      </p>
+      <a class="link-arrow" href="/apps/due/privacy">Read the full privacy policy →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: var(--cream);
+    padding: 88px 0 64px;
+  }
+
+  .hero-inner {
+    max-width: 720px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--forest);
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 5vw, 52px);
+    margin-bottom: 20px;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--ink);
+    max-width: 52ch;
+    margin-bottom: 32px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .btn-primary {
+    background: var(--forest);
+    color: var(--cream);
+    text-decoration: none;
+    padding: 13px 22px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  .btn-secondary {
+    color: var(--forest);
+    text-decoration: none;
+    padding: 13px 22px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    border: 1px solid var(--line);
+  }
+
+  .hero-ledger {
+    background: var(--paper);
+    border-radius: 14px;
+    padding: 8px 20px;
+    max-width: 480px;
+  }
+
+  .hero-ledger .ledger-line .value {
+    color: var(--ink-soft);
+  }
+
+  .features {
+    padding: 88px 0;
+  }
+
+  .features h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .section-sub {
+    color: var(--ink-soft);
+    max-width: 52ch;
+    margin-bottom: 40px;
+  }
+
+  .feature-ledger {
+    max-width: 640px;
+  }
+
+  .privacy-panel {
+    background: var(--forest);
+    color: var(--cream);
+    padding: 72px 0;
+  }
+
+  .privacy-inner {
+    max-width: 620px;
+  }
+
+  .privacy-panel h2 {
+    color: var(--cream);
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .privacy-panel p {
+    color: var(--cream);
+    opacity: 0.9;
+    margin-bottom: 24px;
+  }
+
+  .link-arrow {
+    text-decoration: none;
+    color: var(--cream);
+    font-weight: 500;
+    border-bottom: 1px solid var(--line-on-forest);
+    padding-bottom: 2px;
+  }
+</style>

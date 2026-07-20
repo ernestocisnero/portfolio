@@ -1,0 +1,174 @@
+---
+interface App {
+  slug: string;
+  name: string;
+  tagline: string;
+  icon?: string;
+  color?: string;
+  status?: string;
+  link?: string;
+}
+
+interface Props {
+  apps: App[];
+}
+
+const { apps } = Astro.props;
+---
+
+<section class="app-section">
+  <p class="section-label">Apps</p>
+
+  <div class="grouped-list">
+    {
+      apps.map((app) => {
+        const RowTag = app.link ? "a" : "div";
+        return (
+          <RowTag
+            class={`row ${!app.link ? "row--disabled" : ""}`}
+            href={app.link || undefined}
+          >
+            <span
+              class="icon"
+              style={app.color ? `background:${app.color}` : undefined}
+              aria-hidden="true"
+            >
+              {app.icon ? <img src={app.icon} alt="" /> : app.name.charAt(0)}
+            </span>
+
+            <span class="row-text">
+              <span class="row-title">
+                {app.name}
+                {app.status && <span class="status-pill">{app.status}</span>}
+              </span>
+              <span class="row-tagline">{app.tagline}</span>
+            </span>
+
+            {app.link && (
+              <span class="chevron" aria-hidden="true">
+                ›
+              </span>
+            )}
+          </RowTag>
+        );
+      })
+    }
+  </div>
+</section>
+
+<style>
+  .app-section {
+    max-width: 560px;
+    padding-bottom: 64px;
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+    padding-left: 4px;
+  }
+
+  .grouped-list {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid var(--hairline);
+    overflow: hidden;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--ink);
+    position: relative;
+  }
+
+  /* Native iOS separator inset: divider starts after the icon, not the row edge */
+  .row:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 66px;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--hairline);
+  }
+
+  .row:hover:not(.row--disabled) {
+    background: rgba(0, 122, 255, 0.04);
+  }
+
+  .row--disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--ink-soft);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1rem;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .row-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .row-title {
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .row-tagline {
+    font-size: 0.875rem;
+    color: var(--ink-soft);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .status-pill {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #fff;
+    background: var(--warning);
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+
+  .chevron {
+    margin-left: auto;
+    font-size: 1.3rem;
+    color: var(--hairline-strong);
+    flex-shrink: 0;
+  }
+</style>

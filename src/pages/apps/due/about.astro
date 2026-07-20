@@ -1,0 +1,93 @@
+---
+import Layout from "../../../layouts/LayoutDue.astro";
+---
+
+<Layout
+  title="About"
+  description="Why Due exists, and the principles behind how it's built."
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h1>A bill reminder, and nothing more</h1>
+      <p class="lede">
+        Due was built to solve one problem: knowing a bill is coming before it's late. Not
+        budgeting, not net worth tracking, not a linked bank account, just a reliable nudge before
+        each due date.
+      </p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="wrap legal-content">
+      <h2>Why it exists</h2>
+      <p>
+        Most bill and budgeting apps ask for a lot up front, an account, a linked bank, permission
+        to categorize every transaction, in exchange for a reminder that could have been a simple
+        local notification. Due starts from the other direction: what's the smallest app that
+        reliably solves "remind me before this is due," with nothing extra attached to it.
+      </p>
+
+      <h2>How it's built</h2>
+      <p>
+        Due is a native iOS app. Every bill you add, the name, amount, due date, and how often it
+        repeats, is stored directly on your device. When a bill is recurring, paying it rolls the
+        due date forward to the next cycle automatically, correctly handling short months so a bill
+        due on the 31st doesn't quietly drift to the wrong date over time. Reminders are scheduled
+        as local notifications, and you can mark a bill paid straight from the notification without
+        opening the app.
+      </p>
+
+      <h2>What it isn't</h2>
+      <ul>
+        <li>It isn't a budgeting app. It doesn't categorize spending or track net worth.</li>
+        <li>It doesn't connect to your bank or any financial institution.</li>
+        <li>It doesn't have an account system, because there's nothing to sync.</li>
+        <li>It doesn't collect analytics on how you use it.</li>
+      </ul>
+
+      <h2>Supporting development</h2>
+      <p>
+        Due is free to use. If it's useful to you, there's an optional tip inside the app a
+        one-time purchase through Apple's App Store, entirely separate from your bill data. It
+        changes nothing about how the app works either way.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: var(--cream);
+    padding: 72px 0 56px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--forest);
+    margin-bottom: 16px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(30px, 4vw, 42px);
+    margin-bottom: 18px;
+    max-width: 20ch;
+  }
+
+  .lede {
+    font-size: 17px;
+    color: var(--ink);
+    max-width: 56ch;
+  }
+
+  .content {
+    padding: 64px 0 96px;
+  }
+
+  .legal-content {
+    max-width: 680px;
+  }
+</style>

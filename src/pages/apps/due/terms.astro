@@ -1,0 +1,105 @@
+---
+import Layout from "../../../layouts/LayoutDue.astro";
+---
+
+<Layout
+  title="Terms of Use"
+  description="The terms covering use of the Due app, including reminders, recurring bills, and in-app tips."
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Legal</p>
+      <h1>Terms of use</h1>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="wrap legal-content">
+      <span class="legal-updated">Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+
+      <h2>Using Due</h2>
+      <p>
+        Due is provided for personal, non-commercial use on your own iOS device. By downloading or
+        using Due, you agree to these terms. If you don't agree with them, please don't use the app.
+      </p>
+
+      <h2>Reminders are a convenience, not a guarantee</h2>
+      <p>
+        Due is designed to help you remember bills before they're due, using dates and reminder
+        windows you set yourself. Reminders depend on iOS notification delivery, your device's
+        settings, and the accuracy of the information you enter. Due does not guarantee that a
+        reminder will be delivered, and is not responsible for late payments, fees, or any other
+        consequence of a missed or mistimed reminder. Due is a tool to help you stay organized, the
+        responsibility for paying your bills remains yours.
+      </p>
+
+      <h2>Your data, your accuracy</h2>
+      <p>
+        You're responsible for the accuracy of the bill information you enter, names, amounts, due
+        dates, and recurrence. Due does not verify this information against any external source,
+        because it has no connection to your bank or billers.
+      </p>
+
+      <h2>In-app tips</h2>
+      <p>
+        Due offers optional, one-time tip purchases to support ongoing development. Tips are digital
+        goods processed through Apple's App Store and, once completed, are non-refundable except
+        where required by law or Apple's own refund policies. Tips do not unlock any feature or
+        functionality, every part of Due works identically whether or not you choose to tip.
+      </p>
+
+      <h2>No warranty</h2>
+      <p>
+        Due is provided "as is," without warranty of any kind, express or implied. We don't guarantee
+        the app will be error-free, uninterrupted, or fit for any particular purpose beyond what's
+        described here.
+      </p>
+
+      <h2>Limitation of liability</h2>
+      <p>
+        To the fullest extent permitted by law, Due and its developer are not liable for any
+        indirect, incidental, or consequential damages, including late fees, missed payments, or
+        data loss, arising from your use of the app.
+      </p>
+
+      <h2>Changes to these terms</h2>
+      <p>
+        These terms may be updated as the app changes. Continued use of Due after an update means
+        you accept the revised terms.
+      </p>
+
+      <!-- <h2>Contact</h2>
+      <p>
+        Questions about these terms can be sent to <a href="mailto:support@example.com">support@example.com</a>.
+      </p> -->
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: var(--cream);
+    padding: 72px 0 48px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--forest);
+    margin-bottom: 16px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(30px, 4vw, 42px);
+  }
+
+  .content {
+    padding: 48px 0 96px;
+  }
+
+  .legal-content {
+    max-width: 680px;
+  }
+</style>

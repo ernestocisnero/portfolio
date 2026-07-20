@@ -1,0 +1,320 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: "/apps/due/", label: "Home" },
+  { href: "/apps/due/about", label: "About" },
+  { href: "/apps/due/support", label: "Support" },
+  { href: "/apps/due/privacy", label: "Privacy" },
+  { href: "/apps/due/terms", label: "Terms" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} · Due</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a href="/" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="/apps/due/logo_transparent.png" alt="" width="32" height="32" />
+          </span>
+          <span class="brand-name">due</span>
+        </a>
+        <nav aria-label="Primary">
+          <ul>
+            {
+              navLinks.map((link) => (
+                <li>
+                  <a href={link.href} aria-current={currentPath === link.href ? "page" : undefined}>
+                    {link.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p class="footer-copy">© {new Date().getFullYear()} Due. Built for iOS.</p>
+      </div>
+    </footer>
+
+    <style is:global>
+      :root {
+        --paper: #fbf9f4;
+        --cream: #f8e7c9;
+        --forest: #064e3b;
+        --forest-deep: #04342c;
+        --ink: #2b2a25;
+        --ink-soft: #6b6a61;
+        --line: rgba(6, 78, 59, 0.28);
+        --line-on-forest: rgba(248, 231, 201, 0.35);
+
+        --font-display: "Fraunces", serif;
+        --font-body: "Inter", sans-serif;
+        --font-mono: "IBM Plex Mono", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-display);
+        color: var(--forest);
+        font-weight: 500;
+        line-height: 1.15;
+        margin: 0;
+      }
+
+      p {
+        margin: 0 0 1rem;
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--forest);
+        outline-offset: 3px;
+      }
+
+      .wrap {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header */
+      .site-header {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+      .brand-name {
+        font-family: var(--font-display);
+        font-size: 20px;
+        color: var(--forest);
+        letter-spacing: 0.01em;
+      }
+
+      .brand-mark{
+
+      }
+
+
+      .site-header nav ul {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .site-header nav a {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink-soft);
+        padding-bottom: 4px;
+        border-bottom: 1px solid transparent;
+      }
+
+      .site-header nav a:hover,
+      .site-header nav a[aria-current="page"] {
+        color: var(--forest);
+        border-bottom-color: var(--forest);
+      }
+
+      /* Footer */
+      .site-footer {
+        background: var(--forest);
+        color: var(--cream);
+        
+      }
+
+      .footer-inner {
+        padding: 56px 24px 40px;
+      }
+
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .footer-brand p {
+        color: var(--cream);
+        opacity: 0.85;
+        font-size: 14px;
+        margin: 0;
+        max-width: 40ch;
+      }
+
+      .footer-line {
+        border-top: 1px dashed var(--line-on-forest);
+        margin-bottom: 24px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px 28px;
+        margin-bottom: 32px;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        font-size: 14px;
+        color: var(--cream);
+        opacity: 0.85;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+        text-decoration: underline;
+      }
+
+      .footer-copy {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--cream);
+        opacity: 0.6;
+        margin: 0;
+      }
+
+      /* Ledger line — signature element reused across pages */
+      .ledger-line {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .ledger-line:first-child {
+        border-top: 1px solid var(--line);
+      }
+
+      .ledger-line .label {
+        font-size: 15px;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+
+      .ledger-line .fill {
+        flex: 1;
+        border-bottom: 2px dotted var(--line);
+        transform: translateY(-5px);
+      }
+
+      .ledger-line .value {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        color: var(--forest);
+        white-space: nowrap;
+      }
+
+      /* Shared content sections */
+      .legal-content h2 {
+        font-size: 22px;
+        margin-top: 2.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .legal-content h2:first-child {
+        margin-top: 0;
+      }
+
+      .legal-content p,
+      .legal-content li {
+        color: var(--ink-soft);
+        font-size: 15.5px;
+      }
+
+      .legal-content ul {
+        padding-left: 1.25rem;
+      }
+
+      .legal-updated {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--ink-soft);
+        margin-bottom: 2.5rem;
+        display: inline-block;
+        padding: 4px 10px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+      }
+
+      @media (max-width: 640px) {
+        .site-header nav ul {
+          gap: 16px;
+        }
+        .site-header nav a {
+          font-size: 13px;
+        }
+      }
+    </style>
+  </body>
+</html>
