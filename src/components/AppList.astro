@@ -16,159 +16,315 @@ interface Props {
 const { apps } = Astro.props;
 ---
 
-<section class="app-section">
-  <p class="section-label">Apps</p>
+<section class="apps" id="apps">
 
-  <div class="grouped-list">
+  <div class="section-header">
+    <div>
+      <p class="eyebrow">Selected work</p>
+      <h2>Apps I build.</h2>
+    </div>
+
+    <p class="section-description">
+      Small, focused products designed
+      specifically for iPhone and iPad.
+    </p>
+  </div>
+
+
+  <div class="app-grid">
+
     {
-      apps.map((app) => {
-        const RowTag = app.link ? "a" : "div";
+      apps.map((app, index) => {
+
+        const Card = app.link ? "a" : "article";
+
         return (
-          <RowTag
-            class={`row ${!app.link ? "row--disabled" : ""}`}
-            href={app.link || undefined}
+          <Card
+            href={app.link}
+            class={`app-card app-card--${index + 1} ${
+              !app.link ? "app-card--disabled" : ""
+            }`}
           >
-            <span
-              class="icon"
-              style={app.color ? `background:${app.color}` : undefined}
-              aria-hidden="true"
-            >
-              {app.icon ? <img src={app.icon} alt="" /> : app.name.charAt(0)}
-            </span>
 
-            <span class="row-text">
-              <span class="row-title">
-                {app.name}
-                {app.status && <span class="status-pill">{app.status}</span>}
-              </span>
-              <span class="row-tagline">{app.tagline}</span>
-            </span>
+            <div class="card-content">
 
-            {app.link && (
-              <span class="chevron" aria-hidden="true">
-                ›
-              </span>
-            )}
-          </RowTag>
+              <div
+                class="app-icon"
+                style={app.color ? `background:${app.color}` : undefined}
+              >
+                {app.icon ? (
+                  <img src={app.icon} alt="" />
+                ) : (
+                  <span>R</span>
+                )}
+              </div>
+
+              <div>
+                <h3>{app.name}</h3>
+                <p>{app.tagline}</p>
+              </div>
+
+            </div>
+
+
+            <div class="card-footer">
+
+              {
+                app.status ? (
+                  <span class="status">
+                    {app.status}
+                  </span>
+                ) : (
+                  <span class="open-app">
+                    View app
+                    <span>↗</span>
+                  </span>
+                )
+              }
+
+            </div>
+
+          </Card>
         );
       })
     }
+
   </div>
+
 </section>
 
+
 <style>
-  .app-section {
-    max-width: 560px;
-    padding-bottom: 64px;
+
+.apps {
+  max-width: 1380px;
+  margin: auto;
+
+  padding: 100px 6vw;
+}
+
+
+/* HEADER */
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-bottom: 45px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+
+  color: var(--accent);
+}
+
+h2 {
+  margin: 0;
+
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+
+.section-description {
+  max-width: 300px;
+
+  color: var(--ink-soft);
+
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+/* GRID */
+
+.app-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+
+/* CARD */
+
+.app-card {
+  min-height: 250px;
+
+  padding: 32px;
+
+  border-radius: 28px;
+
+  background: #F0F0EB;
+
+  color: var(--ink);
+
+  text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  transition:
+    transform 250ms ease,
+    background 250ms ease;
+}
+
+.app-card:hover {
+  transform: translateY(-5px);
+  background: #EAEAE3;
+}
+
+
+/* FIRST APP */
+
+.app-card--1 {
+  background: #E8EDE4;
+}
+
+.app-card--1:hover {
+  background: #E1E8DC;
+}
+
+
+/* THIRD APP */
+
+.app-card--3 {
+  background: #F3F0F7;
+
+  opacity: 0.75;
+}
+
+
+/* CONTENT */
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 26px;
+}
+
+.app-icon {
+  width: 64px;
+  height: 64px;
+
+  border-radius: 17px;
+
+  background: var(--ink);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.app-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.app-icon span {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+
+h3 {
+  margin: 0 0 8px;
+
+  font-size: 2.2rem;
+  letter-spacing: -0.05em;
+}
+
+.card-content p {
+  margin: 0;
+
+  color: var(--ink-soft);
+
+  font-size: 0.95rem;
+}
+
+
+/* FOOTER */
+
+.card-footer {
+  display: flex;
+  align-items: center;
+}
+
+.open-app {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.open-app span {
+  font-size: 1.1rem;
+}
+
+.status {
+  font-size: 0.7rem;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: var(--ink-soft);
+}
+
+
+/* SECOND CARD */
+
+.app-card--2 {
+  background: #E8EFEA;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .apps {
+    padding: 70px 24px;
   }
 
-  .section-label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--ink-soft);
-    margin-bottom: 10px;
-    padding-left: 4px;
+  .section-header {
+    display: block;
   }
 
-  .grouped-list {
-    background: #fff;
-    border-radius: 16px;
-    border: 1px solid var(--hairline);
-    overflow: hidden;
+  .section-description {
+    margin-top: 20px;
   }
 
-  .row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 16px;
-    text-decoration: none;
-    color: var(--ink);
-    position: relative;
+  .app-grid {
+    grid-template-columns: 1fr;
   }
 
-  /* Native iOS separator inset: divider starts after the icon, not the row edge */
-  .row:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    left: 66px;
-    right: 0;
-    bottom: 0;
-    height: 1px;
-    background: var(--hairline);
+  .app-card {
+    min-height: 360px;
   }
 
-  .row:hover:not(.row--disabled) {
-    background: rgba(0, 122, 255, 0.04);
+  h3 {
+    font-size: 1.9rem;
   }
 
-  .row--disabled {
-    cursor: default;
-    opacity: 0.6;
-  }
+}
 
-  .icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: var(--ink-soft);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 1rem;
-    flex-shrink: 0;
-    overflow: hidden;
-  }
-
-  .icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .row-text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    min-width: 0;
-  }
-
-  .row-title {
-    font-size: 1rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .row-tagline {
-    font-size: 0.875rem;
-    color: var(--ink-soft);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .status-pill {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: #fff;
-    background: var(--warning);
-    padding: 2px 8px;
-    border-radius: 999px;
-  }
-
-  .chevron {
-    margin-left: auto;
-    font-size: 1.3rem;
-    color: var(--hairline-strong);
-    flex-shrink: 0;
-  }
 </style>

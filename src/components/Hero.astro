@@ -1,84 +1,476 @@
 ---
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 ---
 
 <section class="hero">
 
-  <h1>Ernesto Cisnero</h1>
-  <p class="role">Independent iOS Developer</p>
+  <nav class="nav">
+    <a href="/" class="logo">EC</a>
 
-  <p class="bio">
-    Building clean, native iOS apps with a focus on simplicity and usability.
-  </p>
+    <div class="nav-links">
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+    </div>
+  </nav>
 
-  
+
+  <div class="hero-content">
+
+    <div class="hero-copy">
+
+      <p class="eyebrow">
+        Independent iOS Developer
+      </p>
+
+      <h1>
+        Ernesto<br />
+        <span>Cisnero</span>
+      </h1>
+
+      <p class="bio">
+        Building small, focused native iOS apps.
+      </p>
+
+      <a href="#apps" class="explore">
+  <span>Explore my apps</span>
+
+  <span class="scroll-animation">
+    <LottieAnimation
+      src="scroll-down.json"
+      autoplay="visible"
+    />
+  </span>
+</a>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+      <div class="orbit"></div>
+
+      <div class="phone">
+
+        <div class="phone-screen">
+
+          <div class="phone-top">
+            <span>9:41</span>
+            <span>•••</span>
+          </div>
+
+          <div class="launch-title">
+            LaunchTrack
+          </div>
+
+          <div class="next-launch">
+            <span>Next launch</span>
+
+            <strong>Falcon 9</strong>
+
+            <small>SpaceX · Sep 14</small>
+          </div>
+
+          <div class="launch-list">
+
+            <div>
+              <span class="rocket">🚀</span>
+              <section>
+                <strong>Starship</strong>
+                <small>SpaceX</small>
+              </section>
+            </div>
+
+            <div>
+              <span class="rocket">🚀</span>
+              <section>
+                <strong>Ariane 6</strong>
+                <small>ESA</small>
+              </section>
+            </div>
+
+            <div>
+              <span class="rocket">🚀</span>
+              <section>
+                <strong>Atlas V</strong>
+                <small>ULA</small>
+              </section>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="visual-label">
+        <span></span>
+        LaunchTrack
+        <small>Space launches tracker.</small>
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
+
 <style>
+
+.hero {
+  min-height: 100vh;
+  padding: 28px 6vw 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* NAV */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+
+/* HERO */
+
+.hero-content {
+  max-width: 1380px;
+  min-height: calc(100vh - 100px);
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.hero-copy {
+  padding-top: 40px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(4.5rem, 8vw, 8rem);
+  line-height: 0.84;
+  letter-spacing: -0.075em;
+  font-weight: 700;
+  margin: 0;
+}
+
+h1 span {
+  color: var(--ink-soft);
+}
+
+.bio {
+  max-width: 480px;
+  margin-top: 38px;
+
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-top: 40px;
+
+  color: var(--ink);
+  text-decoration: none;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.scroll-animation {
+  width: 24px;
+  height: 24px;
+}
+
+.explore .arrow {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--hairline-strong);
+  border-radius: 50%;
+
+  transition: transform 200ms ease;
+}
+
+.explore:hover .arrow {
+  transform: translateY(4px);
+}
+
+
+/* VISUAL */
+
+.hero-visual {
+  min-height: 600px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbit {
+  position: absolute;
+
+  width: 460px;
+  height: 460px;
+
+  border: 1px solid #B6C7A6;
+  border-radius: 50%;
+
+  transform: rotate(-20deg);
+}
+
+.orbit::after {
+  content: "";
+
+  position: absolute;
+
+  width: 14px;
+  height: 14px;
+
+  background: var(--accent);
+  border-radius: 50%;
+
+  top: 40px;
+  left: 82px;
+}
+
+
+/* PHONE */
+
+.phone {
+  width: 270px;
+  height: 550px;
+
+  padding: 10px;
+
+  border-radius: 42px;
+
+  background: #101820;
+
+  box-shadow:
+    0 35px 70px rgba(0, 0, 0, 0.18),
+    0 10px 20px rgba(0, 0, 0, 0.08);
+
+  transform: rotate(7deg);
+
+  position: relative;
+  z-index: 2;
+}
+
+.phone-screen {
+  height: 100%;
+
+  border-radius: 34px;
+
+  background: #101B28;
+  color: white;
+
+  padding: 25px 18px;
+}
+
+.phone-top {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
+.launch-title {
+  margin-top: 30px;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.next-launch {
+  margin-top: 28px;
+
+  padding: 18px;
+
+  border-radius: 18px;
+
+  background: #18283A;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.next-launch span,
+.next-launch small {
+  font-size: 0.65rem;
+  opacity: 0.55;
+}
+
+.next-launch strong {
+  font-size: 1.1rem;
+}
+
+.launch-list {
+  margin-top: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.launch-list > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 11px;
+
+  border-radius: 14px;
+
+  background: #152333;
+}
+
+.rocket {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #25364A;
+  border-radius: 10px;
+
+  font-size: 0.9rem;
+}
+
+.launch-list section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.launch-list strong {
+  font-size: 0.75rem;
+}
+
+.launch-list small {
+  font-size: 0.6rem;
+  opacity: 0.5;
+}
+
+
+/* LABEL */
+
+.visual-label {
+  position: absolute;
+
+  right: -20px;
+  bottom: 110px;
+
+  display: flex;
+  flex-direction: column;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.visual-label span {
+  width: 35px;
+  height: 1px;
+
+  background: var(--ink-soft);
+
+  margin-bottom: 10px;
+}
+
+.visual-label small {
+  margin-top: 5px;
+
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
   .hero {
-    padding: 64px 0 48px;
-    max-width: 560px;
+    padding: 22px 24px 60px;
   }
 
-  .avatar {
-    width: 64px;
-    height: 64px;
-    border-radius: 18px;
-    background: var(--accent);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin-bottom: 24px;
-    box-shadow: 0 6px 16px rgba(0, 122, 255, 0.25);
+  .hero-content {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 100px;
   }
 
   h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 4px;
-    color: var(--ink);
+    font-size: clamp(4rem, 18vw, 6rem);
   }
 
-  .role {
-    font-size: 1rem;
-    color: var(--ink-soft);
-    margin-bottom: 20px;
+  .hero-visual {
+    min-height: 500px;
   }
 
-  .bio {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    margin-bottom: 28px;
-    max-width: 48ch;
+  .phone {
+    width: 230px;
+    height: 470px;
   }
 
-  .contact-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+  .orbit {
+    width: 350px;
+    height: 350px;
   }
 
-  .pill {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 16px;
-    border-radius: 999px;
-    background: #fff;
-    border: 1px solid var(--hairline);
-    color: var(--ink);
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: border-color 150ms ease, background 150ms ease;
+  .visual-label {
+    right: 0;
   }
 
-  .pill:hover {
-    border-color: var(--accent);
-    background: rgba(0, 122, 255, 0.06);
-  }
+}
+
 </style>

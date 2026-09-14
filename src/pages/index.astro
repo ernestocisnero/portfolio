@@ -21,11 +21,11 @@ const apps = [
     icon: "/apps/due/01_primary_green_bg.png",
   },
   {
-    slug: "civis",
-    name: "Civis",
-    tagline: "More soon.",
+    slug: "rootizen",
+    name: "Rootizen",
+    tagline: "Citizenship study, made simpler`12`.",
     status: "In development",
-    icon: "/apps/civis/CivisIcon.png",
+    icon: "",
   },
 ];
 ---
@@ -34,14 +34,17 @@ const apps = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ernesto Cisnero — iOS Developer</title>
+
+    <title>Ernesto Cisnero — Independent iOS Developer</title>
+
     <meta
       name="description"
-      content="Independent iOS developer building small, focused apps — LaunchTrack, Due, and more."
+      content="Independent iOS developer building small, focused native apps."
     />
   </head>
+
   <body>
-    <main class="container">
+    <main>
       <Hero />
       <AppList apps={apps} />
       <Footer />
