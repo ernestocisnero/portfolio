@@ -1,53 +1,58 @@
 ---
-import Hero from "../components/Hero.astro";
-import AppList from "../components/AppList.astro";
-import Footer from "../components/Footer.astro";
+import PortfolioCard from "../components/PortfolioCard";
+import { profile, links } from "../data/portfolio.ts";
 import "../styles/global.css";
 
-const apps = [
-  {
-    slug: "launchtrack",
-    name: "LaunchTrack",
-    tagline: "Space launches tracker.",
-    link: "/apps/launchtrack/",
-    icon: "/apps/launchtrack/LaunchTrackNewLogo.png",
-  },
-  {
-    slug: "due",
-    name: "Due",
-    tagline: "Bill reminders that stay on your phone.",
-    link: "/apps/due/",
-    color: "#064E3B",
-    icon: "/apps/due/01_primary_green_bg.png",
-  },
-  {
-    slug: "rootizen",
-    name: "Rootizen",
-    tagline: "Citizenship study, made simpler`12`.",
-    status: "In development",
-    icon: "",
-  },
-];
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
-    <title>Ernesto Cisnero — Independent iOS Developer</title>
+    <title>{profile.name}</title>
 
     <meta
       name="description"
-      content="Independent iOS developer building small, focused native apps."
+      content={profile.bio}
     />
   </head>
 
   <body>
-    <main>
-      <Hero />
-      <AppList apps={apps} />
-      <Footer />
+    <main class="container">
+      <section class="profile">
+        <div class="avatar">
+          EC
+        </div>
+
+        <h1>{profile.name}</h1>
+
+        <p class="username">{profile.username}</p>
+
+        <p class="bio">{profile.bio}</p>
+      </section>
+
+      <section class="links" aria-label="Links">
+        {
+          links.map((link) => (
+            <PortfolioCard
+              title={link.title}
+              description={link.description}
+              url={link.url}
+            />
+          ))
+        }
+      </section>
+
+      <footer>
+        <span>Ernesto Cisnero &copy; {new Date().getFullYear()}</span>
+      </footer>
     </main>
   </body>
 </html>
