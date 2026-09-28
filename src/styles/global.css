@@ -6,9 +6,11 @@
     "SF Pro Text",
     system-ui,
     sans-serif;
+    color: #2a2f35;
+    background: #f5f6f7;
 
-  color: #111;
-  background: #f5f5f5;
+    --appInDevelopment-color: #3b82f6;
+    --appDeployed-color: #30D158;
 }
 
 * {
@@ -116,10 +118,14 @@ h1 {
   font-weight: 600;
 }
 
-.portfolio-card p {
+.portfolio-card-description {
   margin: 4px 0 0;
-
   color: #777;
+  font-size: 14px;
+}
+
+.portfolio-card-phase {
+  margin: 4px 0 0;
   font-size: 14px;
 }
 

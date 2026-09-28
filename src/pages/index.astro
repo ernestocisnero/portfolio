@@ -2,9 +2,6 @@
 import PortfolioCard from "../components/PortfolioCard";
 import { profile, links } from "../data/portfolio.ts";
 import "../styles/global.css";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <!doctype html>
@@ -33,8 +30,6 @@ import "../styles/global.css";
 
         <h1>{profile.name}</h1>
 
-        <p class="username">{profile.username}</p>
-
         <p class="bio">{profile.bio}</p>
       </section>
 
@@ -44,6 +39,7 @@ import "../styles/global.css";
             <PortfolioCard
               title={link.title}
               description={link.description}
+              phase={link.phase}
               url={link.url}
             />
           ))

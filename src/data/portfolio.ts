@@ -1,13 +1,20 @@
+interface Link{
+  title: string;
+  description: string;
+  phase: string;
+  url: string;
+}
+
 export const profile = {
   name: "Ernesto Cisnero",
-  username: "@erne.cisnero",
   bio: "iOS developer building thoughtful native apps.",
 };
 
-export const links = [
+export const links: Link[] = [
   {
     title: "Rootizen",
     description: "U.S. Citizenship study app. To help you pass the civics test and become a citizen.",
+    phase: "In development",
     url: "#apps",
   }
 //   {
