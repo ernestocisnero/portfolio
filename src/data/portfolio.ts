@@ -14,8 +14,8 @@ export const links: Link[] = [
   {
     title: "Rootizen",
     description: "U.S. Citizenship study app. To help you pass the civics test and become a citizen.",
-    phase: "TestFlight Beta",
-    url: "https://rootizen.com",
+    phase: "Download on the App Store",
+    url: "https://apps.apple.com/app/6824361963",
   }
 //   {
 //     title: "GitHub",
